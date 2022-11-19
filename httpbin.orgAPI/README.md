@@ -82,7 +82,7 @@ Automated the following crud operations using postman, newman for this api.
 1. Copy this link
 
    ```
-   https://github.com/md-mostafa/Postman_Newman/tree/main/TestApiAutomation
+   https://github.com/md-mostafa/Postman_Newman/tree/main/httpbin.orgAPI
    ```
 
 
