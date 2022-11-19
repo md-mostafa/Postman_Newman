@@ -1,0 +1,1821 @@
+{
+	"info": {
+		"_postman_id": "8078c459-a203-4b13-b72a-11a601e4e7ba",
+		"name": "httpbinorg API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12316264"
+	},
+	"item": [
+		{
+			"name": "Http Methods",
+			"item": [
+				{
+					"name": "Get Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"",
+									"",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"/*",
+									"pm.test(\"Cookie fake is present\", () => {",
+									"  pm.expect(pm.cookies.has('fake')).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Cookie fake has value fake_value\", () => {",
+									"  pm.expect(pm.cookies.get(\"fake\")).to.eql(\"fake_value\");",
+									"});",
+									"",
+									"pm.test(\"Cookie fake is present\", () => {",
+									"  pm.expect(pm.cookies.has(\"stale_after\")).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Cookie stale_after has value never\", () => {",
+									"  pm.expect(pm.cookies.get(\"stale_after\")).to.eql(\"never\");",
+									"});",
+									"",
+									"*/",
+									"",
+									"const schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"args\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"headers\": {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"Accept\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Accept-Encoding\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cache-Control\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cookie\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Host\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Postman-Token\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"User-Agent\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"X-Amzn-Trace-Id\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"Accept\",",
+									"        \"Accept-Encoding\",",
+									"        \"Cache-Control\",",
+									"        \"Host\",",
+									"        \"Postman-Token\",",
+									"        \"User-Agent\",",
+									"        \"X-Amzn-Trace-Id\"",
+									"      ]",
+									"    },",
+									"    \"origin\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"url\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"args\",",
+									"    \"headers\",",
+									"    \"origin\",",
+									"    \"url\"",
+									"  ]",
+									"};",
+									"",
+									"pm.test(\"The request’s query parameters.\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/get",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"get"
+							]
+						},
+						"description": "The request's query parameters."
+					},
+					"response": []
+				},
+				{
+					"name": "Post Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"console.log(response)",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"/*",
+									"",
+									"pm.test(\"Cookie fake is present\", () => {",
+									"  pm.expect(pm.cookies.has('fake')).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Cookie fake has value fake_value\", () => {",
+									"  pm.expect(pm.cookies.get('fake')).to.eql('fake_value');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Cookie fake is present\", () => {",
+									"  pm.expect(pm.cookies.has('stale_after')).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Cookie stale_after has value never\", () => {",
+									"  pm.expect(pm.cookies.get('stale_after')).to.eql('never');",
+									"});",
+									"",
+									"*/",
+									"",
+									"",
+									"const schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"args\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"data\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"files\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"form\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"headers\": {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"Accept\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Accept-Encoding\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cache-Control\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Content-Length\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cookie\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Host\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Postman-Token\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"User-Agent\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"X-Amzn-Trace-Id\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"Accept\",",
+									"        \"Accept-Encoding\",",
+									"        \"Cache-Control\",",
+									"        \"Content-Length\",",
+									"        \"Host\",",
+									"        \"Postman-Token\",",
+									"        \"User-Agent\",",
+									"        \"X-Amzn-Trace-Id\"",
+									"      ]",
+									"    },",
+									"    \"json\": {",
+									"      \"type\": \"null\"",
+									"    },",
+									"    \"origin\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"url\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"args\",",
+									"    \"data\",",
+									"    \"files\",",
+									"    \"form\",",
+									"    \"headers\",",
+									"    \"json\",",
+									"    \"origin\",",
+									"    \"url\"",
+									"  ]",
+									"};",
+									"",
+									"pm.test(\"The request's POST parameters.\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/post",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"post"
+							]
+						},
+						"description": "The request's POST parameters."
+					},
+					"response": []
+				},
+				{
+					"name": "Put Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"console.log(response)",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"/*",
+									"",
+									"pm.test(\"Cookie fake is present\", () => {",
+									"  pm.expect(pm.cookies.has('fake')).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Cookie fake has value fake_value\", () => {",
+									"  pm.expect(pm.cookies.get('fake')).to.eql('fake_value');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Cookie fake is present\", () => {",
+									"  pm.expect(pm.cookies.has('stale_after')).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Cookie stale_after has value never\", () => {",
+									"  pm.expect(pm.cookies.get('stale_after')).to.eql('never');",
+									"});",
+									"",
+									"*/",
+									"",
+									"const schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"args\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"data\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"files\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"form\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"headers\": {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"Accept\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Accept-Encoding\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cache-Control\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Content-Length\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cookie\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Host\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Postman-Token\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"User-Agent\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"X-Amzn-Trace-Id\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"Accept\",",
+									"        \"Accept-Encoding\",",
+									"        \"Cache-Control\",",
+									"        \"Content-Length\",",
+									"        \"Host\",",
+									"        \"Postman-Token\",",
+									"        \"User-Agent\",",
+									"        \"X-Amzn-Trace-Id\"",
+									"      ]",
+									"    },",
+									"    \"json\": {",
+									"      \"type\": \"null\"",
+									"    },",
+									"    \"origin\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"url\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"args\",",
+									"    \"data\",",
+									"    \"files\",",
+									"    \"form\",",
+									"    \"headers\",",
+									"    \"json\",",
+									"    \"origin\",",
+									"    \"url\"",
+									"  ]",
+									"};",
+									"",
+									"pm.test(\"The request's PUT parameters.\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/put",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"put"
+							]
+						},
+						"description": "The request's PUT parameters."
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"console.log(response)",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"/*",
+									"pm.test(\"Cookie fake is present\", () => {",
+									"  pm.expect(pm.cookies.has('fake')).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Cookie fake has value fake_value\", () => {",
+									"  pm.expect(pm.cookies.get('fake')).to.eql('fake_value');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Cookie fake is present\", () => {",
+									"  pm.expect(pm.cookies.has('stale_after')).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Cookie stale_after has value never\", () => {",
+									"  pm.expect(pm.cookies.get('stale_after')).to.eql('never');",
+									"});",
+									"",
+									"*/",
+									"",
+									"",
+									"const schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"args\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"data\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"files\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"form\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"headers\": {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"Accept\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Accept-Encoding\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cache-Control\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Content-Length\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cookie\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Host\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Postman-Token\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"User-Agent\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"X-Amzn-Trace-Id\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"Accept\",",
+									"        \"Accept-Encoding\",",
+									"        \"Cache-Control\",",
+									"        \"Content-Length\",",
+									"        \"Host\",",
+									"        \"Postman-Token\",",
+									"        \"User-Agent\",",
+									"        \"X-Amzn-Trace-Id\"",
+									"      ]",
+									"    },",
+									"    \"json\": {",
+									"      \"type\": \"null\"",
+									"    },",
+									"    \"origin\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"url\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"args\",",
+									"    \"data\",",
+									"    \"files\",",
+									"    \"form\",",
+									"    \"headers\",",
+									"    \"json\",",
+									"    \"origin\",",
+									"    \"url\"",
+									"  ]",
+									"};",
+									"",
+									"pm.test(\"The request's PATCH parameters.\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/patch",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"patch"
+							]
+						},
+						"description": "The request's PATCH parameters."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"console.log(response)",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"/*",
+									"pm.test(\"Cookie fake is present\", () => {",
+									"  pm.expect(pm.cookies.has('fake')).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Cookie fake has value fake_value\", () => {",
+									"  pm.expect(pm.cookies.get('fake')).to.eql('fake_value');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Cookie fake is present\", () => {",
+									"  pm.expect(pm.cookies.has('stale_after')).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Cookie stale_after has value never\", () => {",
+									"  pm.expect(pm.cookies.get('stale_after')).to.eql('never');",
+									"});",
+									"",
+									"*/",
+									"",
+									"",
+									"const schema ={",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"args\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"data\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"files\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"form\": {",
+									"      \"type\": \"object\"",
+									"    },",
+									"    \"headers\": {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"Accept\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Accept-Encoding\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cache-Control\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cookie\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Host\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Postman-Token\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"User-Agent\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"X-Amzn-Trace-Id\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"Accept\",",
+									"        \"Accept-Encoding\",",
+									"        \"Cache-Control\",",
+									"        \"Host\",",
+									"        \"Postman-Token\",",
+									"        \"User-Agent\",",
+									"        \"X-Amzn-Trace-Id\"",
+									"      ]",
+									"    },",
+									"    \"json\": {",
+									"      \"type\": \"null\"",
+									"    },",
+									"    \"origin\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"url\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"args\",",
+									"    \"data\",",
+									"    \"files\",",
+									"    \"form\",",
+									"    \"headers\",",
+									"    \"json\",",
+									"    \"origin\",",
+									"    \"url\"",
+									"  ]",
+									"};",
+									"",
+									"pm.test(\"The request’s DELETE parameters.\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/delete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"delete"
+							]
+						},
+						"description": "The request's DELETE parameters."
+					},
+					"response": []
+				}
+			],
+			"description": "# Testing different HTTP verbs"
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Auth Using Basic Auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"console.log(response)",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"",
+									"const schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"authenticated\": {",
+									"      \"type\": \"boolean\"",
+									"    },",
+									"    \"user\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"authenticated\",",
+									"    \"user\"",
+									"  ]",
+									"};",
+									"",
+									"",
+									"pm.test(\"Successful Authentication\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mostafa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/basic-auth/mostafa/123",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"basic-auth",
+								"mostafa",
+								"123"
+							]
+						},
+						"description": "Prompts the user for authorization using HTTP Basic Auth."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth Using Bearer Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"",
+									"const schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"authenticated\": {",
+									"      \"type\": \"boolean\"",
+									"    },",
+									"    \"token\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"authenticated\",",
+									"    \"token\"",
+									"  ]",
+									"};",
+									"",
+									"pm.test(\"Successful Authentication\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "habijdfadaa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/bearer",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"bearer"
+							]
+						},
+						"description": "Prompts the user for authorization using **bearer authentication.**"
+					},
+					"response": []
+				},
+				{
+					"name": "Auth Using Digest Auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"",
+									"const schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"authenticated\": {",
+									"      \"type\": \"boolean\"",
+									"    },",
+									"    \"user\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"authenticated\",",
+									"    \"user\"",
+									"  ]",
+									"};",
+									"",
+									"pm.test(\"Successful Authentication\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": [
+								{
+									"key": "qop",
+									"value": "auth",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mostafa",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "MD5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/digest-auth/auth/mostafa/123",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"digest-auth",
+								"auth",
+								"mostafa",
+								"123"
+							]
+						},
+						"description": "Prompts the user for authorization using **Digest Auth.**"
+					},
+					"response": []
+				},
+				{
+					"name": "Auth Using Digest Auth+algo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"",
+									"const schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"authenticated\": {",
+									"      \"type\": \"boolean\"",
+									"    },",
+									"    \"user\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"authenticated\",",
+									"    \"user\"",
+									"  ]",
+									"};",
+									"",
+									"pm.test(\"Successful Authentication\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": [
+								{
+									"key": "qop",
+									"value": "auth",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mostafa",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "MD5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/digest-auth/auth/mostafa/123/MD5",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"digest-auth",
+								"auth",
+								"mostafa",
+								"123",
+								"MD5"
+							]
+						},
+						"description": "Prompts the user for authorization using Digest **Auth + Algorithm.**"
+					},
+					"response": []
+				}
+			],
+			"description": "# Auth methods"
+		},
+		{
+			"name": "Status Codes",
+			"item": [
+				{
+					"name": "Get Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.collectionVariables.get(\"codes\");",
+									"",
+									"code = parseInt(code);",
+									"",
+									"pm.test(\"Status code is \"+code, () => {",
+									"    pm.response.to.have.status(code);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is text/html; charset=utf-8\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('text/html; charset=utf-8');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/status/{{codes}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"status",
+								"{{codes}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.collectionVariables.get(\"codes\");",
+									"",
+									"code = parseInt(code);",
+									"",
+									"pm.test(\"Status code is \"+code, () => {",
+									"    pm.response.to.have.status(code);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is text/html; charset=utf-8\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('text/html; charset=utf-8');",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/status/{{codes}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"status",
+								"{{codes}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.collectionVariables.get(\"codes\");",
+									"",
+									"code = parseInt(code);",
+									"",
+									"pm.test(\"Status code is \"+code, () => {",
+									"    pm.response.to.have.status(code);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is text/html; charset=utf-8\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('text/html; charset=utf-8');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/status/{{codes}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"status",
+								"{{codes}}"
+							]
+						},
+						"description": "Return status code or random status code if more than one are given"
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.collectionVariables.get(\"codes\");",
+									"",
+									"code = parseInt(code);",
+									"",
+									"",
+									"pm.test(\"Status code is \"+code, () => {",
+									"    pm.response.to.have.status(code);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is text/html; charset=utf-8\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('text/html; charset=utf-8');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/status/{{codes}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"status",
+								"{{codes}}"
+							]
+						},
+						"description": "Return status code or random status code if more than one are given"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.collectionVariables.get(\"codes\");",
+									"",
+									"code = parseInt(code);",
+									"",
+									"",
+									"pm.test(\"Status code is \"+code, () => {",
+									"    pm.response.to.have.status(code);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is text/html; charset=utf-8\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('text/html; charset=utf-8');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/status/{{codes}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"status",
+								"{{codes}}"
+							]
+						},
+						"description": "Return status code or random status code if more than one are given"
+					},
+					"response": []
+				}
+			],
+			"description": "# Generates responses with given status code"
+		},
+		{
+			"name": "Request Inspection",
+			"item": [
+				{
+					"name": "Get Header",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status Code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/headers",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"headers"
+							]
+						},
+						"description": "Return the incoming request's HTTP headers."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"",
+									"pm.test(\"Status Code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"",
+									"const schema = {",
+									"    \"origin\" : String",
+									"};",
+									"",
+									"pm.test(\"Ip Received\", () => {",
+									"    //response.to.have(\"origin\")",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/ip",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ip"
+							]
+						},
+						"description": "Returns the requester's IP Address."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Agent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"",
+									"pm.test(\"Status Code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"",
+									"const schema = {",
+									"    \"user-agent\" : String",
+									"};",
+									"",
+									"pm.test(\"User Agent Received\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/user-agent",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user-agent"
+							]
+						},
+						"description": "Return the incoming requests's User-Agent header."
+					},
+					"response": []
+				}
+			],
+			"description": "# Inspect the response data like caching and headers"
+		},
+		{
+			"name": "Response Formats",
+			"item": [
+				{
+					"name": "Get Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Status Code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"const schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"brotli\": {",
+									"      \"type\": \"boolean\"",
+									"    },",
+									"    \"headers\": {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"Accept\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Accept-Encoding\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cache-Control\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Host\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Postman-Token\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"User-Agent\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"X-Amzn-Trace-Id\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"Accept\",",
+									"        \"Accept-Encoding\",",
+									"        \"Cache-Control\",",
+									"        \"Host\",",
+									"        \"Postman-Token\",",
+									"        \"User-Agent\",",
+									"        \"X-Amzn-Trace-Id\"",
+									"      ]",
+									"    },",
+									"    \"method\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"origin\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"brotli\",",
+									"    \"headers\",",
+									"    \"method\",",
+									"    \"origin\"",
+									"  ]",
+									"};",
+									"",
+									"",
+									"pm.test(\"Validating brotli encoded data received\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/brotli",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"brotli"
+							]
+						},
+						"description": "Returns Brotli-encoded data"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+									"});",
+									"",
+									"const schema = {",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"deflated\": {",
+									"      \"type\": \"boolean\"",
+									"    },",
+									"    \"headers\": {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"Accept\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Accept-Encoding\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Cache-Control\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Host\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"Postman-Token\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"User-Agent\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"X-Amzn-Trace-Id\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"Accept\",",
+									"        \"Accept-Encoding\",",
+									"        \"Cache-Control\",",
+									"        \"Host\",",
+									"        \"Postman-Token\",",
+									"        \"User-Agent\",",
+									"        \"X-Amzn-Trace-Id\"",
+									"      ]",
+									"    },",
+									"    \"method\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"origin\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"deflated\",",
+									"    \"headers\",",
+									"    \"method\",",
+									"    \"origin\"",
+									"  ]",
+									"};",
+									"",
+									"",
+									"pm.test(\"Validating Deflate encoded data received\", () => {",
+									"    pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/deflate",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"deflate"
+							]
+						},
+						"description": "Returns Deflate-encoded data"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Status Code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is present\", () => {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/deny",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"deny"
+							]
+						},
+						"description": "Returns page denied by **robots.txt** rules."
+					},
+					"response": []
+				}
+			],
+			"description": "# Returns responses in different data formats"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "httpbin.org",
+			"type": "string"
+		},
+		{
+			"key": "codes",
+			"value": "101",
+			"type": "string"
+		}
+	]
+}

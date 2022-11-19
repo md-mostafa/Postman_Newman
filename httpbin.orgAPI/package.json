@@ -1,10 +1,10 @@
 {
-  "name": "testapiautomation",
+  "name": "httpbin.orgAPI",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "apitest": "node ./src/runner/runner.js"
+    "test": "node ./src/runner/runner.js"
   },
   "author": "",
   "license": "ISC",
